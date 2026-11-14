@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f7fb" />
+    <meta name="description" content="Easy Business — your business, beautifully in sync." />
+    <title>Easy Business — Business, beautifully in sync</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="auth-screen" id="auth-screen" hidden>
+      <section class="auth-card">
+        <a class="brand auth-brand" href="#" aria-label="Easy Business"><span class="brand-mark"><span></span><span></span><span></span><span></span></span><span class="brand-name">easy<span>business</span></span></a>
+        <span class="eyebrow" id="auth-eyebrow">YOUR BUSINESS, BEAUTIFULLY IN SYNC</span>
+        <h1 id="auth-title">Welcome back</h1>
+        <p class="auth-description" id="auth-description">Sign in to your private business workspace.</p>
+        <form id="auth-form">
+          <label class="auth-field" id="auth-name-field" hidden><span>Your name</span><input name="displayName" autocomplete="name" maxlength="80" /></label>
+          <label class="auth-field" id="auth-company-role-field" hidden><span>Your company role</span><input name="companyRole" autocomplete="organization-title" maxlength="80" placeholder="e.g. Business Owner" /></label>
+          <label class="auth-field"><span>Work email</span><input name="email" type="email" autocomplete="username" required maxlength="254" /></label>
+          <label class="auth-field"><span>Password</span><input name="password" type="password" autocomplete="current-password" minlength="12" required maxlength="256" /></label>
+          <label class="auth-field" id="auth-confirm-field" hidden><span>Confirm password</span><input name="confirmPassword" type="password" autocomplete="new-password" minlength="12" maxlength="256" /></label>
+          <p class="auth-error" id="auth-error" role="alert" hidden></p>
+          <button type="submit" class="button button-primary auth-submit" id="auth-submit">Sign in</button>
+        </form>
+        <p class="auth-forgot" id="auth-forgot"><button type="button" class="button auth-mode-switch" id="auth-forgot-button">Forgot your password?</button></p>
+        <form id="auth-reset-request-form" hidden>
+          <label class="auth-field"><span>Work email</span><input name="resetEmail" type="email" autocomplete="email" required maxlength="254" /></label>
+          <p class="auth-message" id="auth-reset-request-message" role="status" hidden></p>
+          <button type="submit" class="button button-primary auth-submit" id="auth-reset-request-submit">Send reset link</button>
+          <button type="button" class="button auth-mode-switch auth-reset-back" id="auth-reset-request-back">Back to sign in</button>
+        </form>
+        <form id="auth-reset-complete-form" hidden>
+          <label class="auth-field"><span>New password</span><input name="newPassword" type="password" autocomplete="new-password" minlength="12" maxlength="256" required /></label>
+          <label class="auth-field"><span>Confirm new password</span><input name="confirmNewPassword" type="password" autocomplete="new-password" minlength="12" maxlength="256" required /></label>
+          <p class="auth-message" id="auth-reset-complete-message" role="alert" hidden></p>
+          <button type="submit" class="button button-primary auth-submit" id="auth-reset-complete-submit">Reset password</button>
+          <button type="button" class="button auth-mode-switch auth-reset-back" id="auth-reset-complete-back">Back to sign in</button>
+        </form>
+        <p class="auth-switch" id="auth-switch"></p>
+        <p class="auth-footnote">Your business data stays in your local SQLite database.</p>
+      </section>
+      <footer class="auth-signature">2026 POWERED BY SLYTECHZW</footer>
+    </main>
+    <div class="app-shell" id="app-shell" hidden>
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="#" data-page="Dashboard" aria-label="Easy Business home">
+          <span class="brand-mark"><span></span><span></span><span></span><span></span></span>
+          <span class="brand-name">easy<span>business</span></span>
+        </a>
+        <div class="workspace-switcher">
+          <div class="workspace-avatar">N</div>
+          <div class="workspace-copy"><strong id="workspace-name">Easy Business</strong><span>Business workspace</span></div>
+          <button class="icon-button workspace-more" aria-label="Workspace options">⌄</button>
+        </div>
+        <nav class="side-nav" aria-label="Main navigation">
+          <div class="nav-label">WORKSPACE</div>
+          <button class="nav-item" id="analytics-nav" data-page="Analytics"><span class="nav-icon" data-icon="chart"></span><span>Analytics</span><span class="nav-count">4</span></button>
+          <div class="nav-label nav-label-spaced" id="business-nav-label">BUSINESS</div>
+          <div id="core-nav"></div>
+          <button class="nav-item section-toggle" id="optional-toggle" aria-expanded="true" aria-controls="optional-nav"><span class="nav-icon" data-icon="layers"></span><span>More modules</span><span class="toggle-chevron">⌄</span></button>
+          <div id="optional-nav" class="optional-nav"></div>
+        </nav>
+        <div class="sidebar-bottom">
+          <button class="nav-item settings-link" data-page="Settings"><span class="nav-icon" data-icon="settings"></span><span>Settings</span></button>
+          <div class="user-profile">
+            <div class="profile-avatar" id="sidebar-user-avatar">AD</div>
+            <div class="profile-copy"><strong id="sidebar-user-name">Administrator</strong><span id="sidebar-user-role">Administrator</span></div>
+            <button class="icon-button profile-more auth-logout" id="logout-button" aria-label="Sign out" title="Sign out"><span aria-hidden="true">↪</span><span>Sign out</span></button>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <button class="mobile-menu icon-button" id="mobile-menu" aria-label="Open navigation">☰</button>
+          <div class="breadcrumbs"><strong id="breadcrumb-current">Dashboard</strong></div>
+          <div class="topbar-actions">
+            <div class="global-search-wrap">
+              <label class="global-search"><span data-icon="search"></span><input id="global-search" type="search" placeholder="Search anything..." autocomplete="off" aria-controls="global-search-results" aria-expanded="false" /><kbd>⌘ K</kbd></label>
+              <div class="global-search-results" id="global-search-results" role="listbox" aria-label="Search suggestions" hidden></div>
+            </div>
+            <button class="icon-button topbar-icon" id="shortcut-button" aria-label="Keyboard shortcuts"><span data-icon="command"></span></button>
+            <button class="icon-button topbar-icon notification-button" id="notification-button" aria-label="Notifications"><span data-icon="bell"></span><i></i></button>
+            <button class="button topbar-help" id="help-button" aria-label="Need help?" title="Need help?"><span class="help-mark" aria-hidden="true">?</span><span>Need help?</span></button>
+            <div class="topbar-divider"></div>
+            <button class="topbar-profile" id="topbar-profile"><span class="mini-avatar">JD</span><span id="topbar-user-name">Administrator</span><span class="profile-caret">⌄</span></button>
+          </div>
+        </header>
+        <section class="page-content" id="page-content" aria-live="polite"></section>
+        <footer class="app-signature">2026 POWERED BY SLYTECHZW</footer>
+      </main>
+      <button class="sidebar-backdrop" id="sidebar-backdrop" aria-label="Close navigation" tabindex="-1"></button>
+      <div class="toast-region" id="toast-region" aria-live="polite"></div>
+      <div class="ai-chat">
+        <section class="ai-chat-panel" id="ai-chat-panel" aria-label="AI business assistant" hidden>
+          <header class="ai-chat-header">
+            <div class="ai-chat-title"><span class="ai-chat-mark" aria-hidden="true">AI</span><div><strong>Business assistant</strong><span id="ai-chat-model-status">Checking local AI…</span></div></div>
+            <div class="ai-chat-header-actions"><button type="button" class="ai-chat-clear" id="ai-chat-clear">New chat</button><button type="button" class="icon-button dialog-close" id="ai-chat-close" aria-label="Close assistant">×</button></div>
+          </header>
+          <p class="ai-chat-privacy">Uses records from your assigned modules with Ollama running locally on this computer. The assistant is read-only.</p>
+          <p class="ai-chat-setup" id="ai-chat-setup" role="status" hidden></p>
+          <div class="ai-chat-messages" id="ai-chat-messages" role="log" aria-live="polite" aria-relevant="additions text">
+            <div class="ai-chat-welcome">Hi! Ask me about your business records, stock, sales, or invoices.</div>
+          </div>
+          <p class="ai-chat-error" id="ai-chat-error" role="alert" hidden></p>
+          <form class="ai-chat-form" id="ai-chat-form">
+            <label class="sr-only" for="ai-chat-input">Message the business assistant</label>
+            <textarea id="ai-chat-input" maxlength="1000" rows="2" placeholder="Ask a question about your business…" required></textarea>
+            <button type="submit" class="button button-primary ai-chat-send" id="ai-chat-send" aria-label="Send message"><span data-icon="send"></span></button>
+          </form>
+          <span class="ai-chat-footnote">AI answers can be wrong. Verify important figures.</span>
+        </section>
+        <button type="button" class="ai-chat-launcher" id="ai-chat-launcher" aria-expanded="false" aria-controls="ai-chat-panel"><span data-icon="message"></span><span>Ask AI</span></button>
+      </div>
+      <div class="modal-backdrop" id="help-backdrop" hidden>
+        <section class="dialog help-dialog" role="dialog" aria-modal="true" aria-labelledby="help-dialog-title">
+          <div class="dialog-header"><div><span class="eyebrow">EASY BUSINESS SUPPORT</span><h2 id="help-dialog-title">Need help?</h2></div><button class="icon-button dialog-close" id="help-dialog-close" aria-label="Close help">×</button></div>
+          <div class="help-contact-options">
+            <p>Contact Slytechzw using either option:</p>
+            <a class="help-contact-link" href="tel:+263774267130"><span class="help-contact-icon" aria-hidden="true">☎</span><span><strong>Call</strong><span>+263 774 267 130</span></span></a>
+            <a class="help-contact-link" href="mailto:sylvestermagadzire@gmail.com"><span class="help-contact-icon" aria-hidden="true">✉</span><span><strong>Email</strong><span>sylvestermagadzire@gmail.com</span></span></a>
+          </div>
+        </section>
+      </div>
+      <div class="modal-backdrop" id="modal-backdrop" hidden>
+        <section class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+          <div class="dialog-header"><div><span class="eyebrow">EASY BUSINESS</span><h2 id="dialog-title">Create record</h2></div><button class="icon-button dialog-close" id="dialog-close" aria-label="Close dialog">×</button></div>
+          <form id="record-form"><div class="dialog-fields" id="dialog-fields"></div><div class="dialog-footer"><button type="button" class="button button-quiet" id="dialog-cancel">Cancel</button><button type="submit" class="button button-primary"><span data-icon="plus"></span><span id="dialog-submit-label">Create record</span></button></div></form>
+        </section>
+      </div>
+    </div>
+    <div class="connection-banner" id="connection-banner" hidden role="alert"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

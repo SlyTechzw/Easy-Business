@@ -1,0 +1,17 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run Easy Business locally",
+			"type": "shell",
+			"command": "C:\\Users\\BINLADIN\\.dotnet\\dotnet.exe",
+			"args": [
+				"run",
+				"--project",
+				"C:\\Users\\BINLADIN\\Desktop\\projects\\EasyBusiness.csproj"
+			],
+			"isBackground": true,
+			"problemMatcher": []
+		}
+	]
+}
