@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Easy Business
 
 Easy Business is an ASP.NET Core business app. The web interface is served by an ASP.NET Core API, and business records are shared with signed-in users through PostgreSQL.
@@ -90,3 +91,6 @@ Use the SMTP host, port, sender, and app-password format required by your provid
 The public [ZIMRA FDMS site](https://fdms.zimra.co.zw/) is an invoice validation portal; its public pages do not provide the device API contract needed to safely submit fiscal receipts. This project therefore does **not** claim a live ZIMRA connection and deliberately refuses fiscal submissions.
 
 To implement and verify live fiscalisation, obtain the current official FDMS device-integration specification, the applicable sandbox URL, device-registration details/certificate, and ZIMRA-issued sandbox credentials. Provide those through a secure channel for implementation. Never paste production credentials into source code or commit device certificates. Fiscal invoices must not be treated as ZIMRA-fiscalised until ZIMRA confirms the official integration and testing process.
+=======
+# Easy-Business
+>>>>>>> cc758d0b0164f0e2c4b31579ec7d8f26e0356217
